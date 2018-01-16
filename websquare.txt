@@ -115,7 +115,10 @@
   * 설정 가이드
     * config.xml
       * 웹스퀘어의 JavaScript에서 참고하는 설정 파일입니다.
-      * https://ernd.nrf.re.kr/websquare/config.xml
+      * 전역변수 및 환경설정 등 세팅 
+      * ex) https://ernd.nrf.re.kr/websquare/config.xml
+      
+
     * websquare.xml
       * 웹스퀘어의 서버 모듈에서 참고하는 설정입니다.
       * ${WEBSQUARE_HOME}/config/websquare.xml
