@@ -1,7 +1,5 @@
-* ref url
-  * http://docs.inswave.com:1975/6aca15a7e9eaabe9#66a5af1eca1cfcf2
-  * 
-  
+http://docs.inswave.com:1975/6aca15a7e9eaabe9
+
 ----
 
 * WebSquare5
@@ -10,6 +8,7 @@
 ----
 
 * 장점소개
+  * 강력한 웹 컴포넌트, 뛰어난 사용성, 엔터프라이즈급 성능, 단일 소스
 
 ----
 
@@ -21,7 +20,42 @@
 ----
 
 * WebSquare XML 파일 
-  * Design 탭에서 디자인하고 개발한 화면의 소스 코드는 자동 생성되어 WebSquare XML로 저장
+  * Design 탭에서 디자인하고 개발한 화면의 소스 코드는 자동 생성되어 WebSquare XML로 저장됩니다. 해당 소스코드는 Source 탭에서 확인 가능하며 JavaScript에 익숙한 개발자는 Source 탭에서 자동 생성된 소스 코드를 직접 확인하고 편집할 수도 있습니다.
+
+  * WebSquare XML 파일의 기본 구조
+    * html과 비슷 
+        <head>
+            <xf:model>
+                <w2:dataCollection> 데이터 구조
+                <xf:workflow> submit, submitDone의 실행 순서
+                <xf:submission> 서비스 호출에 필요한 submit을 정의, 각 submit은 고유 ID를 포함
+            <script> 글로벌 스크립트 정의, 컴포넌트의 이벤트 함수 정의
+            <style> 스타일 지정
+        <body> 
+            컴포넌트, 컴포넌트 속성, 화면 UI 정보 포함
+
+    * 예시 
+        <?xml version="1.0" encoding="UTF-8"?>
+        <html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:ev="http://www.w3.org/2001/xml-events"
+            xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+            <head>
+                <w2:type>DEFAULT</w2:type>
+                <w2:buildDate />
+                <xf:model>
+                    <xf:instance> <data xmlns="" /> </xf:instance>
+                    <w2:dataCollection baseNode="map"></w2:dataCollection>
+                    <w2:workflowCollection></w2:workflowCollection>
+                </xf:model>
+                <script type="javascript"><![CDATA[ ]]></script>
+                <style type="text/css"><![CDATA[ ]]></style>
+            </head>
+            <body></body>
+        </html>
+
+    * 확인
+        https://ernd.nrf.re.kr/websquare/websquarepop.do?w2xPath=/wsq/cm/cmcd/MainSrcCmnCdListRP.xml
+        https://ernd.nrf.re.kr/wsq/cm/cmcd/MainSrcCmnCdListRP.xml
 
 ----
 
@@ -34,14 +68,14 @@
     * 레이아웃, 폼, 슬라이딩 바, 탭, 버튼, 팝업 등
   * 사용자 입력받기
     * radio, checkbox, select, text, 자동완성, 날짜, 
-    
   * 출력 
     * 이미지, 트리구조, Pagination 등
-
   * 반복 제어
     * 여러 컴포넌트로 구성된 컴포넌트 그룹을 한번에 생성하기 위한 컴포넌트
     
   * GridView
+    * inputType
+      * text, checkbox, radio, calendar 등 다양한 입력형식을 지원
 
   * 데이터 시각화(차트)
 
@@ -100,7 +134,6 @@
     * WorkflowCollection: Workflow의 그룹
     * Step: 여러 건의 작업 처리 순서를 정의한 것
 
-
 ----
 
 * 예제
@@ -115,9 +148,7 @@
   * 설정 가이드
     * config.xml
       * 웹스퀘어의 JavaScript에서 참고하는 설정 파일입니다.
-      * 환경설정 및 전역변수 등 세팅 
-      * ex) https://ernd.nrf.re.kr/websquare/config.xml
-
+      * https://ernd.nrf.re.kr/websquare/config.xml
     * websquare.xml
       * 웹스퀘어의 서버 모듈에서 참고하는 설정입니다.
       * ${WEBSQUARE_HOME}/config/websquare.xml
@@ -136,20 +167,9 @@
   * 오픈소스 및 외부 라이브러리 연계
   * 웹 표준 개발 가이드
   * 캐싱 가이드
-    * Aggressive Caching
-      * 브라우저에서 서버에 별도의 요청을 보내지 않고 로컬에 저장된 데이터를 바로 읽는 방식의 캐싱 정책을 지칭합니다. 이미지나 XML파일과 같이 변경이 거의 발생하지 않는 자원의 경우 서버로 요청이 올라가지 않도록 설정이 되어야 성능 향상이 가능해 진다. 일반적으로 HTTP헤더의 만료일(Expires Date) 을 이용하여 Aggressive Caching을 설정합니다.
-    * 304(Not Modified)
-      * 일반적인 캐싱정책으로 브라우저에서 서버에 이전에 다운받은 파일의 ETag와 마지막 변경일(Last Modified Date)을 전송하여 변경 여부에 대한 정보를 서버에서 받는 방식으로 동작합니다.
-    * No cache
-
-
-
   * 캐싱 가이드 - HTML5
   * 서버 프레임워크 연동 가이드
   * Upload시 파일명 처리 가이드
   * 파일 업로드/다운로드
   * 권장 사용 가이드
 
-----
-
-https://ernd.nrf.re.kr/websquare/websquarepop.do?w2xPath=/wsq/cm/cmcd/MainSrcCmnCdListRP.xml
