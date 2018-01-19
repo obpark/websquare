@@ -1,4 +1,7 @@
-ssh-keygen
-cat ~/.ssh/id_rsa.pub
+$ ssh-keygen
+$ cat ~/.ssh/id_rsa.pub
 https://github.com/settings/keys
   New SSH key
+
+$ git remote set-url origin git+ssh://git@github.com/obpark/websquare.git
+$ git remote show origin
