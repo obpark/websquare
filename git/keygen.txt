@@ -1,0 +1,4 @@
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+https://github.com/settings/keys
+  New SSH key
