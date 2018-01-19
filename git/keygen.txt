@@ -3,5 +3,6 @@ $ cat ~/.ssh/id_rsa.pub
 https://github.com/settings/keys
   New SSH key
 
-$ git remote set-url origin git+ssh://git@github.com/obpark/websquare.git
-$ git remote show origin
+* Set your remote URL to a form that supports SSH
+  $ git remote set-url origin git+ssh://git@github.com/obpark/websquare.git
+  $ git remote show origin
